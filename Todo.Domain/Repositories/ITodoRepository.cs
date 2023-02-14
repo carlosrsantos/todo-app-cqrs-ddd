@@ -1,0 +1,18 @@
+using Todo.Domain.Entities;
+
+namespace Todo.Domain.Repositories;
+
+public interface ITodoRepository
+{
+  void Create(TodoItem todo);
+  TodoItem? GetById(Guid id, string user);
+  void Update(TodoItem todo);
+  IEnumerable<TodoItem> GetAll(string user);
+
+  IEnumerable<TodoItem> GetAllDone(string user);
+  IEnumerable<TodoItem> GetAllUndone(string user);
+
+  IEnumerable<TodoItem> GetByPeriod(string user, DateTime date, bool done);
+
+
+}
